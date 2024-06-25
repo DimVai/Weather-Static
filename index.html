@@ -7,12 +7,14 @@
 
     <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script defer src="clouds.js"></script>
     <script defer src="prediction.js"></script>
 </head>
 <body>
     <h1>Teachable Machine Image Model</h1>
     <label>First, load the model:</label><br>
     <button type="button" onclick="init()">Load model</button>
+    <span id="modelLoaded"></span>
     <br><br>
     <label>Next, take or upload a photo:</label><br>
     <input type="file" accept="image/*" onchange="handleImageUpload(event)"/>

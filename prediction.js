@@ -12,6 +12,8 @@ async function init() {
     for (let i = 0; i < maxPredictions; i++) {
         labelContainer.appendChild(document.createElement("div"));
     }
+    modelLoaded.innerText = "Model loaded!";
+
 }
 
 async function handleImageUpload(event) {
@@ -27,6 +29,7 @@ async function handleImageUpload(event) {
 
 async function predict(imageElement) {
     const prediction = await model.predict(imageElement);
+    console.log({prediction});
     for (let i = 0; i < maxPredictions; i++) {
         const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         labelContainer.childNodes[i].innerHTML = classPrediction;
