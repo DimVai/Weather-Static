@@ -3,22 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teachable Machine Image Model</title>
+    <title>Πρόβλεψη καιρού</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="resources/style.css">
     <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-    <script defer src="clouds.js"></script>
-    <script defer src="prediction.js"></script>
+    <script defer src="resources/dim.js"></script>
+    <script defer src="app/clouds.js"></script>
+    <script defer src="app/prediction.js"></script>
 </head>
 <body>
-    <h1>Teachable Machine Image Model</h1>
-    <label>First, load the model:</label><br>
-    <button type="button" onclick="init()">Load model</button>
-    <span id="modelLoaded"></span>
-    <br><br>
-    <label>Next, take or upload a photo:</label><br>
-    <input type="file" accept="image/*" onchange="handleImageUpload(event)"/>
-    <br><br>
-    <div id="label-container"></div>
+
+
+    <header class="">
+        <a href="/" class="logo">
+            <!-- <img src="/pwa/logo.png" height="35px"/> -->
+            <h1>Πρόβλεψη καιρού</h1>
+        </a>
+        <!-- <nav> -->
+            <!-- <ul> -->
+                <!-- <li><a href="/login.html">Είσοδος</a></li> -->
+                <!-- <li><a href="#"></a></li> -->
+                <!-- <li><a href="#"></a></li> -->
+            <!-- </ul> -->
+        <!-- </nav> -->
+    </header>
+
+
+
+    <!-- <label>First, load the model:</label><br> -->
+    <span id="modelLoaded">Φόρτωση μοντέλου...</span>
+    <br>
+    <div id="appArea" class="d-none">
+        <div class="mb-3">
+            <label for="imageInput" class="form-label">Ανέβασε φωτογραφία εδώ:</label>
+            <input id="imageInput" class="form-control" type="file" accept="image/*" />
+        </div>
+        <div id="waitingLabel"></div>
+        <div id="explanation" class="d-none">
+            <h3>Τύπος σύνεφων:</h3>
+            <p data-variable="cloudName"></p>
+            <h3>Περιγραφή σύνεφων</h3>
+            <p data-variable="cloudDescription"></p>
+            <h3>Πιθανότητα βροχής</h3>
+            <p data-variable="rainProbability"></p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div id="label-container"></div>
+    </div>
 </body>
 </html>
